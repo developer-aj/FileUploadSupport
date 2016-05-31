@@ -13,12 +13,5 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/org.springframework.beans-3.2.0.RELEASE.jar"/>
-	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/org.springframework.asm.jar"/>
-	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/org.springframework.context-3.2.0.RELEASE.jar"/>
-	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/org.springframework.core-3.2.0.RELEASE.jar"/>
-	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/org.springframework.expression-3.2.0.RELEASE.jar"/>
-	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/org.springframework.web.servlet-3.2.0.RELEASE.jar"/>
-	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/spring-web-3.2.1.RELEASE.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
