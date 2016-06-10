@@ -16,15 +16,7 @@
     </bean>
  
     <mvc:resources mapping="/static/**" location="/static/" />
-    <mvc:default-servlet-handler />
- 
- 
-    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-        <property name="basename">
-            <value>messages</value>
-        </property>
-    </bean>
- 
+    <mvc:default-servlet-handler /> 
  
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">
