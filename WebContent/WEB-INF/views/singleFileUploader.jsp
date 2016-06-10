@@ -13,7 +13,7 @@
 
 	<div class="form-container">
 		<h1>Spring 4 MVC File Upload Example </h1>
-		<form:form method="POST" modelAttribute="fileBucket" enctype="multipart/form-data" class="form-horizontal">
+		<form:form method="POST" modelAttribute="fileUpload" enctype="multipart/form-data" class="form-horizontal">
 		
 			<div class="row">
 				<div class="form-group col-md-12">

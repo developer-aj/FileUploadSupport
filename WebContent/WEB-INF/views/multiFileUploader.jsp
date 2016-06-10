@@ -13,9 +13,9 @@
 
 	<div class="form-container">
 		<h1>Spring 4 MVC Multi File Upload Example </h1>
-		<form:form method="POST" modelAttribute="multiFileBucket" enctype="multipart/form-data" class="form-horizontal">
+		<form:form method="POST" modelAttribute="multiFileUpload" enctype="multipart/form-data" class="form-horizontal">
 		
-			<c:forEach var="v" varStatus="vs" items="${multiFileBucket.files}">
+			<c:forEach var="v" varStatus="vs" items="${multiFileUpload.files}">
 				<form:input type="file" path="files[${vs.index}].file" id="files[${vs.index}].file" class="form-control input-sm"/>
 				<div class="has-error">
 					<form:errors path="files[${vs.index}].file" class="help-inline"/>
