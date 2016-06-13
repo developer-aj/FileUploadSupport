@@ -11,7 +11,7 @@ import java.util.zip.ZipInputStream;
 public class UnZipFile {
 	List<String> fileList;
 	
-	public void unZipIt(String zipFile, String outputFolder){
+	public void unZipIt(File zipFile, String outputFolder){
 		byte[] buffer = new byte[1024];
 		
 		try{

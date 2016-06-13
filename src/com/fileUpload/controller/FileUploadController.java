@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.fileUpload.constants.AccessConstants;
 import com.fileUpload.model.FileUpload;
+import com.fileUpload.util.UnZipFile;
  
 @Controller
 public class FileUploadController {
@@ -30,9 +31,18 @@ public class FileUploadController {
 			Iterator<String> itr = mRequest.getFileNames();
 			while (itr.hasNext()) {
 				FileUpload mFile = new FileUpload(mRequest.getFile(itr.next()));
-				FileCopyUtils.copy(mFile.getFile().getBytes(), new File(AccessConstants.UPLOAD_LOCATION + mFile.getFile().getOriginalFilename()));
+				File uploadedFile = new File(AccessConstants.UPLOAD_LOCATION + mFile.getFile().getOriginalFilename());
+				
+				// Creating upload folder
+				if(!uploadedFile.getParentFile().exists())
+					uploadedFile.getParentFile().mkdirs();
+				
+				// Copying file to upload location
+				FileCopyUtils.copy(mFile.getFile().getBytes(), uploadedFile);
 				String fileName = mFile.getOriginalFilename();
 				System.out.println(fileName);
+				UnZipFile uzf = new UnZipFile();
+				uzf.unZipIt(uploadedFile, AccessConstants.UNZIP_LOCATION);
 			}
 			
 		} catch (Exception e) {
