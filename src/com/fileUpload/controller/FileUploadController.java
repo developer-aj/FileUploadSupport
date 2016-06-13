@@ -1,7 +1,9 @@
 package com.fileUpload.controller;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,8 +24,10 @@ public class FileUploadController {
 
 	@RequestMapping(value = "/fileUpload/", method = RequestMethod.POST)
 	@ResponseBody
-	public String continueFileUpload(HttpServletRequest request, HttpServletResponse response) {
+	public List<List<String>> continueFileUpload(HttpServletRequest request, HttpServletResponse response) {
 		MultipartHttpServletRequest mRequest;
+		List<List<String>> unzippedFiles = new ArrayList<List<String>>();
+		
 		try {
 			mRequest = (MultipartHttpServletRequest) request;
 			mRequest.getParameterMap();
@@ -42,13 +46,13 @@ public class FileUploadController {
 				String fileName = mFile.getOriginalFilename();
 				System.out.println(fileName);
 				UnZipFile uzf = new UnZipFile();
-				uzf.unZipIt(uploadedFile, AccessConstants.UNZIP_LOCATION);
+				unzippedFiles.add(uzf.unZipIt(uploadedFile, AccessConstants.UNZIP_LOCATION));
 			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;
+		return unzippedFiles;
 	}
         
 }

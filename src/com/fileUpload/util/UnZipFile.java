@@ -4,14 +4,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 public class UnZipFile {
-	List<String> fileList;
+	private List<String> fileList = new ArrayList<String>();
 	
-	public void unZipIt(File zipFile, String outputFolder){
+	public List<String> unZipIt(File zipFile, String outputFolder){
 		byte[] buffer = new byte[1024];
 		
 		try{
@@ -42,6 +43,7 @@ public class UnZipFile {
 				}
 				
 				fos.close();
+				fileList.add(newFile.getAbsoluteFile().toString());
 				ze = zis.getNextEntry();
 			}
 			
@@ -53,5 +55,6 @@ public class UnZipFile {
 		} catch(IOException e){
 			e.printStackTrace();
 		}
+		return fileList;
 	}
 }
