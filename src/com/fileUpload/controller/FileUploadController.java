@@ -13,12 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.fileUpload.constants.AccessConstants;
 import com.fileUpload.model.FileUpload;
  
 @Controller
 public class FileUploadController {
- 
-    private static String UPLOAD_LOCATION="C:/mytemp/";
 
 	@RequestMapping(value = "/fileUpload/", method = RequestMethod.POST)
 	@ResponseBody
@@ -31,7 +30,7 @@ public class FileUploadController {
 			Iterator<String> itr = mRequest.getFileNames();
 			while (itr.hasNext()) {
 				FileUpload mFile = new FileUpload(mRequest.getFile(itr.next()));
-				FileCopyUtils.copy(mFile.getFile().getBytes(), new File(UPLOAD_LOCATION + mFile.getFile().getOriginalFilename()));
+				FileCopyUtils.copy(mFile.getFile().getBytes(), new File(AccessConstants.UPLOAD_LOCATION + mFile.getFile().getOriginalFilename()));
 				String fileName = mFile.getOriginalFilename();
 				System.out.println(fileName);
 			}
